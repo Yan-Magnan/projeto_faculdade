@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1> teste </h1>
-</body>
-</html>
+{%extends 'base.html'%}
+{% load static %}
+{%block conteudo%}
+
+<div class="card" style="width: 18rem; position: absolute; left: 40%;">
+  <div class="card-header">
+    Dados cadastrados
+  </div>
+  <img style="width: 160px; height: auto; position: relative; left: 60px" src="{% static 'images/profile.png' %}" class="card-img-top" alt="Profile">
+  <hr>
+  <div class="card-body">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputUser" class="form-label">Usuário</label>
+        <input type="text" class="form-control" id="exampleInputUser" placeholder="Usuário" aria-describedby="emailHelp" value="Yan" disabled>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nova senha</label>
+        <input type="password" class="form-control" placeholder="Nova senha" id="exampleInputPassword1">
+      </div>
+
+      <div style="position: relative; padding-left: 25%">
+        <button type="submit" class="btn btn-primary">Alterar dados</button>
+      </div>
+    </form>
+  </div>
+</div>
+{%endblock%}
