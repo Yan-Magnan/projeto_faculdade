@@ -1,12 +1,23 @@
 from django.shortcuts import render
+from .models import Livros
 
 
 def index(request):
-    return render(request, 'paginas/index.html')
+    livros = Livros.objects.all()
+    return render(request, 'paginas/index.html', {
+        'livros': livros
+    })
 
 
-def menu(request):
-    return render(request, 'paginas/menu.html')
+def abre_livro(request, livros_id):
+    livro = Livros.objects.get(id=livros_id)
+    return render(request, 'paginas/abre_livro.html', {
+        'livro': livro
+    })
+
+
+# def menu(request):
+#     return render(request, 'paginas/profile.html')
 
 
 def profile(request):

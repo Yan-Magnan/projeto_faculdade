@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block conteudo%}
+
+<div style="position:absolute ;padding-top: 2%; left: 3%">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{% static 'images/django.jpg'%}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div class="card-body">
+                        <h2>{{ livro.nome }}</h2>
+                        <h6>ID: {{ livro.id }}</h6>
+                        <h4 style="padding-top: 1%">Descrição</h4>
+                        <h6>{{ livro.descricao }}</h6>
+                        <a href="#">
+                            <button type="button" class="btn btn-primary">Adicionar livro</button>
+                        </a>
+                        <a href="#">
+                            <button type="button" class="btn btn-success">Favoritar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
