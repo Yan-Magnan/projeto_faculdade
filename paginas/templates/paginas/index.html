@@ -31,15 +31,18 @@
                 {% endfor %}
 
                 <div class="carousel-inner">
-                    {% for livros in livros %}
+
                     <div class="carousel-item {% if forloop.first %} active{% endif %}"
                          data-bs-interval="10000 {% if forloop.first %} active{% endif %}"
                          style="position: relative; left: 30% ;width:40%;height:auto;">
-                        <a href="{% url 'abre_livro' livros.id %}"><img src="{% static 'images/django.jpg'%}" class="d-block w-100"
-                                          alt="Livro Django"></a>
+                        {% for livros in livros %}
+                        <a href="{% url 'abre_livro' livros.id %}"><img src="{% static 'images/django.jpg'%}"
+                                                                        class="d-block w-100"
+                                                                        alt="Livro Django"></a>
                         <h5>{{livros.nome}}</h5>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
+
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"

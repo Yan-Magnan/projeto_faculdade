@@ -14,6 +14,7 @@ class Livros(models.Model):
     descricao = models.TextField(blank=True)
     ano_Lancamento = models.DateTimeField(default=timezone.now)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    mostrar = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nome
