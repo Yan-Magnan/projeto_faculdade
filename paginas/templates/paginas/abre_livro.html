@@ -5,9 +5,11 @@
 <div style="position:absolute ;padding-top: 2%; left: 3%">
     <div class="card mb-3">
         <div class="row g-0">
+            {% if livro.foto %}
             <div class="col-md-4">
-                <img src="{% static 'images/django.jpg'%}" class="img-fluid rounded-start" alt="...">
+                <img src="{{ livro.foto.url }}" class="img-fluid rounded-start" alt="...">
             </div>
+            {% endif %}
             <div class="col-md-8">
                 <div class="card-body">
                     <div class="card-body">

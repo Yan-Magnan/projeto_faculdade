@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 {% load static %}
 {%block conteudo%}
-<div style="position:absolute ;padding-top: 2%; left: 3%">
+<div style="position:absolute ;padding-top: 2%; left: 10%">
     <div class="card mb-3" style="max-width: 540px">
         <div class="row g-0">
             <div class="col-md-4">
@@ -9,36 +9,49 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
+
                     <h5 class="card-title">Sobre mim</h5>
-                    <p class="card-text">Cursando o segundo semestre de Ciência da Computação na universidade La
-                        Salle.<br><br> Atualmente estou trabalhando na UFCSPA,desenvolvendo testes automatizados
-                        utilizando a linguagem Python com a library Selenium</p>
+                    <p class="card-text">Me chamo Yan Magnan, estou cursando o segundo semestre de Ciência da Computação
+                        na universidade La
+                        Salle.<br><br> Atualmente estou trabalhando na UFCSPA, desenvolvendo testes automatizados
+                        utilizando a linguagem Python com a library Selenium e ajudando no back e front end</p>
                     <a href="https://www.linkedin.com/in/yan-magnan-303586155" target="_blank" class="btn btn-primary">Linkedin</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div style="position: absolute; left: 50%; top: 20%; ">
+<div style="position: fixed ;left: 65%; top: 20%;">
 
-    <div class="card" style="width: 35rem; height: 25rem;">
+    <div class="card" style="width: 20rem">
+        <div class="card-header">
+            Livros recomnedadso
+        </div>
         <div class="card-body">
+
             <!---------------------------------------------------------------------->
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 {% for id in plots.imgPlots.files %}
 
                 <li data-target="#carouselExampleIndicators" data-slide-to="{{id}}"></li>
                 {% endfor %}
-
                 <div class="carousel-inner">
                     {% for livros in livros %}
                     <div class="carousel-item {% if forloop.first %} active{% endif %}"
                          data-bs-interval="10000 {% if forloop.first %} active{% endif %}"
-                         style="position: relative; left: 30% ;width:40%;height:auto;">
-                        <a href="{% url 'abre_livro' livros.id %}"><img src="{% static 'images/django.jpg'%}"
-                                                                        class="d-block w-100"
+                         style="position: relative; left: 15% ">
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+
+                                <h5 class="card-title">{{livros.nome}} - <a style="font-size:.8rem">id:
+                                    {{livros.id}}</a></h5>
+                            </div>
+                        </div>
+                        <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px    "
+                                                                        src="{{ livros.foto.url }}"
+                                                                        class="d-block w-45"
                                                                         alt="Livro Django"></a>
-                        <h5>{{livros.nome}}</h5>
                     </div>
                     {% endfor %}
                 </div>

@@ -1,15 +1,15 @@
 {%extends 'base.html'%}
 {% load static %}
 {%block conteudo%}
+<form style="max-width: 70%; padding-top:1%; position:relative; left:15%" class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" onclick="funcao1()" type="submit">Pesquisar</button>
+</form>
+<div style="position: absolute ;left: 15%; top: 25%;">
 
-<div style="position: absolute ;left: 10%; top: 20%;">
+    <div class="card" style="width: 60rem">
+        <div class="card-body">
 
-    <div class="card" style="width: 100%">
-        <div class="card-body" >
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" onclick="funcao1()" type="submit">Pesquisar</button>
-            </form>
             <!---------------------------------------------------------------------->
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 {% for id in plots.imgPlots.files %}
@@ -21,18 +21,35 @@
                     {% for livros in livros %}
                     <div class="carousel-item {% if forloop.first %} active{% endif %}"
                          data-bs-interval="10000 {% if forloop.first %} active{% endif %}"
-                         style="position: relative; left: 30% ;width:40%;height:auto;">
-                        <h5>{{livros.nome}}</h5>
-                        <a href="{% url 'abre_livro' livros.id %}"><img src="{% static 'images/django.jpg'%}"
-                                                                        class="d-block w-50"
-                                                                        alt="Livro Django"></a>
+                         style="position: relative; left: 25% ">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px    "
+                                                                                    src="{{ livros.foto.url }}"
+                                                                                    class="d-block w-45"
+                                                                                    alt="Livro Django"></a>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{livros.nome}} - <a style="font-size:.8rem">id:
+                                            {{livros.id}}</a></h5>
+                                        <p class="card-text"
+                                           style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:10;-webkit-box-orient: vertical; ">
+                                            {{livros.descricao}}</p>
 
-                        <a href="#">
-                            <button type="button" class="btn btn-primary">Adicionar livro</button>
-                        </a>
-                        <a href="{% url 'abre_livro' livros.id %}">
-                            <button type="button" class="btn btn-success">Ver mais...</button>
-                        </a>
+                                        <div style="position: relative; padding-top: 2%">
+                                            <a href="#">
+                                                <button type="button" class="btn btn-primary">Adicionar livro</button>
+                                            </a>
+                                            <a style="padding-left:25%" href="{% url 'abre_livro' livros.id %}">
+                                                <button type="button" class="btn btn-success">Ver mais...</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
@@ -63,5 +80,14 @@
     var r=confirm("Função ainda não disponivel");
     document.getElementById("demo").innerHTML=x;
   }
+
+
+
+
+
+
+
+
+
 </script>
 {%endblock%}
