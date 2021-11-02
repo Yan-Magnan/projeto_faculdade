@@ -265,31 +265,12 @@
         }
         /*-------------------------------------------*/
 
+
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="deck">
-        <div class="card hovercard">
-            <div class="front face">
-                <h2 style="position: relative; padding-top: 50%; ">Login</h2>
-            </div>
-            <div class="back face">
+<div class="container" style="padding-left:13rem">
 
-                <form class="box" action="#" method="post">
-
-                    <h2>Login</h2>
-
-                    <input type="text" name="" placeholder="email">
-
-                    <input type="password" name="" placeholder="Senha">
-
-                    <input  type="submit" name="" value="Entrar">
-
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="deck">
         <div class="card hovercard">
             <div class="front face">
@@ -297,13 +278,14 @@
             </div>
             <div class="back face">
 
-                <form  class="box" action="index.html" method="post">
-
-                    <input style="position: relative; bottom: 1%" type="text" name="" placeholder="Usuário">
-                    <input style="position: relative; bottom: 1%" type="email" name="" placeholder="Email">
-                    <input style="position: relative; bottom: 1%" type="password" name="" placeholder="Senha">
-                    <input style="position: relative; bottom: 1%" type="password" name="" placeholder="Repita a senha">
-                    <input style="position: relative; bottom: 10%"  type="submit" name="" value="Cadastrar-se">
+                <form class="box" action="{% url 'cadastro' %}" method="post">
+                    {% csrf_token %}
+                    <input style="position: relative; bottom: 1%" type="text" name="usuario" value='{{request.POST.usuario}}' placeholder="Usuário">
+                    <input style="position: relative; bottom: 1%" type="email" name="email" value='{{request.POST.email}}' placeholder="Email">
+                    <input style="position: relative; bottom: 1%" type="password" name="senha" placeholder="Senha">
+                    <input style="position: relative; bottom: 1%" type="password" name="senha2"
+                           placeholder="Repita a senha">
+                    <input style="position: relative; bottom: 10%" type="submit"  value="Cadastrar-se">
 
                 </form>
             </div>
