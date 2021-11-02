@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Livros
+from django.contrib import messages
 
 
 def index(request):
@@ -23,10 +24,12 @@ def profile(request):
 
 
 def ver_livros(request):
+    # messages.add_message(request, messages.ERROR, 'Ocorreu algum erro')
     livros = Livros.objects.all()
     return render(request, 'paginas/ver_livros.html', {
         'livros': livros
     })
+
 
 
 def lista_desejo(request):
@@ -35,3 +38,4 @@ def lista_desejo(request):
 
 def minha_colecao(request):
     return render(request, 'paginas/minha_colecao.html')
+
