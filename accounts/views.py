@@ -19,7 +19,7 @@ def login(request):
     else:
         auth.login(request, user)
         print('logado com sucesso ')
-        return redirect('paginas')
+        return redirect('index')
 
 
 

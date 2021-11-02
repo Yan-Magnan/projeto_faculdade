@@ -22,7 +22,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="{% url 'profile' %}">Seja bem vindo, <b>Yan</b></a>
+                    <a class="nav-link " aria-current="page" href="{% url 'profile' %}">Seja bem vindo, {{user}}</a>
                 </li>
 
                 <a style="padding-right: 200px"></a>
@@ -49,7 +49,7 @@
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" action="{% url 'index'%}">
+            <form class="d-flex" action="{% url 'login'%}">
                 <button class="btn btn-outline-success" type="submit">Sair</button>
             </form>
         </div>

@@ -12,15 +12,15 @@
     <form>
       <div class="mb-3">
         <label for="exampleInputUser" class="form-label">Usuário</label>
-        <input type="text" class="form-control" id="exampleInputUser" placeholder="Usuário" aria-describedby="emailHelp" value="Yan" disabled>
+        <input type="text" class="form-control" id="exampleInputUser" placeholder="Usuário" aria-describedby="emailHelp" value="{{user}}" disabled>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="email" class="form-control" placeholder="Email" id="exampleInputEmail1" value="{{user.email}}" aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Nova senha</label>
-        <input type="password" class="form-control" placeholder="Nova senha" id="exampleInputPassword1">
+        <input type="password" class="form-control" placeholder="Nova senha" value="{{user.password}}" id="exampleInputPassword1">
       </div>
 
       <div style="position: relative; padding-left: 25%">
