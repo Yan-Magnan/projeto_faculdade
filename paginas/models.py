@@ -16,9 +16,14 @@ class Livros(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     mostrar = models.BooleanField(default=True)
     foto = models.ImageField(blank=True, upload_to='fotos/%y/%m/')
+    livro = models.FileField(blank=True, upload_to='pdfs/%y/%m/')
+    # arquivo = models.FilePathField(blank=False)
 
     def __str__(self):
         return self.nome
+
+
+
 
 
 

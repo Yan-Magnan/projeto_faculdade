@@ -8,3 +8,5 @@ class LivrosAdmin(admin.ModelAdmin):
 
 admin.site.register(Categoria)
 admin.site.register(Livros, LivrosAdmin)
+
+

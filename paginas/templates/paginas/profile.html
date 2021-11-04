@@ -3,30 +3,39 @@
 {%block conteudo%}
 
 <div class="card" style="width: 18rem; position: absolute; left: 40%;">
-  <div class="card-header">
-    Dados cadastrados
-  </div>
-  <img style="width: 160px; height: auto; position: relative; left: 60px" src="{% static 'images/profile.png' %}" class="card-img-top" alt="Profile">
-  <hr>
-  <div class="card-body">
-    <form>
-      <div class="mb-3">
-        <label for="exampleInputUser" class="form-label">Usuário</label>
-        <input type="text" class="form-control" id="exampleInputUser" placeholder="Usuário" aria-describedby="emailHelp" value="{{user}}" disabled>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" placeholder="Email" id="exampleInputEmail1" value="{{user.email}}" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Nova senha</label>
-        <input type="password" class="form-control" placeholder="Nova senha" value="{{user.password}}" id="exampleInputPassword1">
-      </div>
+    <div class="card-header">
+        Dados cadastrados
+    </div>
+    <img style="width: 160px; height: auto; position: relative; left: 60px" src="{% static 'images/profile.png' %}"
+         class="card-img-top" alt="Profile">
+    <hr>
+    <div class="card-body">
+        <form action="{% url 'profile' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputUser" class="form-label">Usuário</label>
+                <input type="text" class="form-control" id="exampleInputUser" placeholder="Usuário"
+                       aria-describedby="emailHelp" name="usuario" value='{{user}}' disabled>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Email" id="exampleInputEmail1"
+                       value="{{user.email}}" aria-describedby="emailHelp" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nova senha</label>
+                <input type="password" class="form-control" name="senha" placeholder="Nova senha"
+                       id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nova senha</label>
+                <input type="password" class="form-control" placeholder="Nova senha" name="senha2" >
+            </div>
 
-      <div style="position: relative; padding-left: 25%">
-        <button type="submit" class="btn btn-primary">Alterar dados</button>
-      </div>
-    </form>
-  </div>
+            <div style="position: relative; padding-left: 25%">
+                <button type="submit" class="btn btn-primary">Alterar dados</button>
+            </div>
+        </form>
+    </div>
 </div>
 {%endblock%}
