@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Livros
+from .models import Livros, Categoria
+from django.contrib.auth.forms import PasswordChangeForm
+
 from django.contrib import messages
 from django.contrib.auth.models import User
 
@@ -28,13 +30,19 @@ def profile(request):
 
 
 
+
 @login_required(redirect_field_name='login')
 def ver_livros(request):
     # messages.add_message(request, messages.ERROR, 'Ocorreu algum erro')
     livros = Livros.objects.all()
     return render(request, 'paginas/ver_livros.html', {
-        'livros': livros
+        'livros': livros,
     })
+
+    # categoria = Categoria.objects.all()
+    # return render(request, 'paginas/ver_livros.html', {
+    #     'categoria': categoria,
+    # })
 
 
 @login_required(redirect_field_name='login')

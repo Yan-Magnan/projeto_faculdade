@@ -280,11 +280,11 @@
 
                 <form class="box" action="{% url 'cadastro' %}" method="post">
                     {% csrf_token %}
-                    <input style="position: relative; bottom: 1%" type="text" name="usuario" value='{{request.POST.usuario}}' placeholder="Usuário">
-                    <input style="position: relative; bottom: 1%" type="email" name="email" value='{{request.POST.email}}' placeholder="Email">
-                    <input style="position: relative; bottom: 1%" type="password" name="senha" placeholder="Senha">
+                    <input style="position: relative; bottom: 1%" type="text" name="usuario" value='{{request.POST.usuario}}' placeholder="Usuário" autocomplete="off">
+                    <input style="position: relative; bottom: 1%" type="email" name="email" value='{{request.POST.email}}' placeholder="Email" autocomplete="off">
+                    <input style="position: relative; bottom: 1%" type="password" name="senha" placeholder="Senha" autocomplete="off">
                     <input style="position: relative; bottom: 1%" type="password" name="senha2"
-                           placeholder="Repita a senha">
+                           placeholder="Repita a senha" autocomplete="off">
                     <input style="position: relative; bottom: 10%" type="submit"  value="Cadastrar-se">
 
                 </form>
@@ -292,5 +292,8 @@
         </div>
     </div>
 </div>
+<div style="position: absolute; padding-left: 43%;">
+    <a href="{% url 'login' %}"><h3 style="color: black">Já tem login? Clique Aqui</h3></a>
+</diV>
 </body>
 </html>

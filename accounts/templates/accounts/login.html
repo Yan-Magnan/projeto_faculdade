@@ -281,8 +281,8 @@
                 <form class="box" action="{% url 'login' %}" method="post">
                     {% csrf_token %}
                     <h2>Login</h2>
-                    <input type="text" name="usuario" placeholder="Usuário">
-                    <input type="password" name="senha" placeholder="Senha">
+                    <input type="text" name="usuario" autocomplete="off" placeholder="Usuário">
+                    <input type="password" name="senha" autocomplete="off" placeholder="Senha">
                     <input type="submit" name="" value="Entrar">
                     <a style="position: relative; bottom:6%; color: white" href = "{% url 'cadastro' %}"> Ainda não tem conta? <br>Clique aqui </a>
                 </form>

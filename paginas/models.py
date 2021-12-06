@@ -8,6 +8,7 @@ class Categoria(models.Model):
         return self.nome
 
 
+
 class Livros(models.Model):
     nome = models.CharField(max_length=80)
     editora = models.CharField(max_length=80)
@@ -21,6 +22,8 @@ class Livros(models.Model):
 
     def __str__(self):
         return self.nome
+
+
 
 
 

@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Categoria, Livros
-
 class LivrosAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'editora', 'ano_Lancamento', 'categoria', 'mostrar')
     list_display_links = ('id', 'nome')
@@ -8,5 +7,6 @@ class LivrosAdmin(admin.ModelAdmin):
 
 admin.site.register(Categoria)
 admin.site.register(Livros, LivrosAdmin)
+# admin.site.register(MeusLivro)
 
 
