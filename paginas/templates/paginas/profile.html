@@ -10,7 +10,7 @@
          class="card-img-top" alt="Profile">
     <hr>
     <div class="card-body">
-        <form action="{% url 'profile' %}" method="post">
+        <form action="{% url 'index' %}" method="post">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="exampleInputUser" class="form-label">Usuário</label>
@@ -23,17 +23,17 @@
                        value="{{user.email}}" aria-describedby="emailHelp" disabled>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Nova senha</label>
-                <input type="password" class="form-control" name="senha" placeholder="Nova senha"
+                <label for="exampleInputPassword1" class="form-label">Senha</label>
+                <input type="password" class="form-control" disabled name="senha" value="**********" placeholder="Nova senha"
                        id="exampleInputPassword1">
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">repita a nova senha</label>
-                <input type="password" class="form-control" placeholder="Nova senha" name="senha2" >
-            </div>
+<!--            <div class="mb-3">-->
+<!--                <label for="exampleInputPassword1" class="form-label">repita a nova senha</label>-->
+<!--                <input type="password" class="form-control" placeholder="Nova senha" name="senha2" >-->
+<!--            </div>-->
 
             <div style="position: relative; padding-left: 25%">
-                <button type="submit" class="btn btn-primary">Alterar dados</button>
+                <button type="submit" class="btn btn-primary">Voltar</button>
             </div>
         </form>
     </div>

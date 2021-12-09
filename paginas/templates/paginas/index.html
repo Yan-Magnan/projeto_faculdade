@@ -13,8 +13,7 @@
                     <h5 class="card-title">Sobre mim</h5>
                     <p class="card-text">Me chamo Yan Magnan, estou cursando o segundo semestre de Ciência da Computação
                         na universidade La
-                        Salle.<br><br> Atualmente estou trabalhando na UFCSPA, desenvolvendo testes automatizados
-                        utilizando a linguagem Python com a library Selenium e ajudando no back e front end</p>
+                        Salle.<br><br> Atualmente sou estagíario de <i>Qa Tester</i> da UFCSPA, porém, eu também ajudo no front-end quando é preciso</p>
                     <a href="https://www.linkedin.com/in/yan-magnan-303586155" target="_blank" class="btn btn-primary">Linkedin</a>
                 </div>
             </div>
@@ -41,14 +40,14 @@
                          data-bs-interval="10000 {% if forloop.first %} active{% endif %}"
                          style="position: relative; left: 15% ">
 
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <div class="card-body">
 
-                                <h5 class="card-title">{{livros.nome}} - <a style="font-size:.8rem">id:
+                                <h5 class="card-title" style="font-size:1rem">{{livros.nome}} - <a style="font-size:.6rem">id:
                                     {{livros.id}}</a></h5>
                             </div>
                         </div>
-                        <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px    "
+                        <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px;  width: 50%  "
                                                                         src="{{ livros.foto.url }}"
                                                                         class="d-block w-45"
                                                                         alt="Livro Django"></a>

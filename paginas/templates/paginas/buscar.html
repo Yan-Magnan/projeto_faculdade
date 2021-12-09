@@ -6,10 +6,10 @@
     <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="{{ request.GET.search }}">
     <button class="btn btn-outline-success" onclick="funcao1()" type="submit">Pesquisar</button>
 </form>
-<div style="position: absolute ;left: 15%; top: 30%;">
+<div style="position: absolute ;left: 15%; top: 25%;">
 
     <div class="card" style="width: 60rem">
-        <div class="card-body" >
+        <div class="card-body">
 
             <!---------------------------------------------------------------------->
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -23,13 +23,13 @@
                     <div class="carousel-item {% if forloop.first %} active{% endif %}"
                          data-bs-interval="10000 {% if forloop.first %} active{% endif %}"
                          style="position: relative; left: 25% ">
-                        <div class="card mb-6" style="max-width: 540px;">
+                        <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px; width:190px   "
+                                    <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px    "
                                                                                     src="{{ livros.foto.url }}"
-                                                                                    class="d-block w-3  "
-                                                                                    alt="Livro"></a>
+                                                                                    class="d-block w-45"
+                                                                                    alt="Livro Django"></a>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -78,12 +78,8 @@
 </div>
 
 
-<!--<script>-->
-<!--  function funcao1()-->
-<!--  {-->
-<!--    var x;-->
-<!--    var r=confirm("Função ainda não disponivel");-->
-<!--    document.getElementById("demo").innerHTML=x;-->
-<!--  }-->
-<!--</script>-->
+
 {%endblock%}
+
+
+<!--{%extends 'ver_livros.html'%}-->
