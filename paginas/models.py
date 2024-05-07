@@ -33,7 +33,8 @@ class Livros(models.Model):
 
     def __str__(self):
         return self.nome
-class pet(models.Model):
+
+class Pets(models.Model):
     status = models.CharField(max_length=80)
     foto = models.ImageField(blank=True, upload_to='fotos/%y/%m/')
     nome = models.CharField(max_length=80)
@@ -64,16 +65,3 @@ class Livros2(models.Model):
 
     def __str__(self):
         return self.nome
-
-
-
-    def __str__(self):
-        return self.nome
-
-
-
-
-
-
-
-
