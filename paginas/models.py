@@ -8,7 +8,7 @@ class Categoria(models.Model):
         return self.nome
 
 
-class Livros(models.Model):
+class Pets(models.Model):
     STATUS_CHOICES = [
         ('Tutor não localizado', 'Tutor não localizado'),
         ('Tutor localizado', 'Tutor localizado'),
