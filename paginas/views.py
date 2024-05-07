@@ -1,11 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Livros, Categoria
 from django.contrib.auth.forms import PasswordChangeForm
-
 from django.contrib import messages
 from django.contrib.auth.models import User
-
 from django.contrib.auth.decorators import login_required
+
+from .models import Pets, Categoria
 
 
 @login_required(redirect_field_name='login')
