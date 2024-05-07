@@ -26,8 +26,6 @@ class Pets(models.Model):
     data_acolhimento = models.DateTimeField(default=timezone.now)
     historico_medico = models.CharField(max_length=500000, blank=True)
     foto = models.ImageField(blank=True, upload_to='fotos/%y/%m/')
-    # livro = models.FileField(blank=True, upload_to='pdfs/%y/%m/')
-    # historico_medico = models.CharField(max_length=500000, blank=True)
     # arquivo = models.FilePathField(blank=False)
 
     def __str__(self):
