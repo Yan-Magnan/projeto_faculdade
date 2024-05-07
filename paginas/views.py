@@ -4,23 +4,25 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
-from .models import Pets, Categoria
+from .models import Pets
 
 
 @login_required(redirect_field_name='login')
 def index(request):
-    livros = Livros.objects.all()
+    pets = Pets.objects.all()
     return render(request, 'paginas/index.html', {
-        'livros': livros
+        'livros': pets
     })
+
 
 @login_required(redirect_field_name='login')
 def abre_livro(request, livros_id):
     # livro = Livros.objects.get(id=livros_id)
-    livro = get_object_or_404(Livros, id=livros_id)
+    pet = get_object_or_404(Pets, id=livros_id)
     return render(request, 'paginas/abre_livro.html', {
-        'livro': livro
+        'livro': pet
     })
+
 
 @login_required(redirect_field_name='login')
 def profile(request):
@@ -31,9 +33,9 @@ def profile(request):
 def ver_livros(request):
     # messages.add_message(request, messages.ERROR, 'Ocorreu algum erro')
 
-    livros = Livros.objects.all()
+    pets = Pets.objects.all()
     return render(request, 'paginas/ver_livros.html', {
-        'livros': livros,
+        'livros': pets,
     })
 
     # categoria = Categoria.objects.all()
@@ -47,23 +49,21 @@ def lista_desejo(request):
     return render(request, 'paginas/lista_desejo.html')
 
 
-
 @login_required(redirect_field_name='login')
 def minha_colecao(request):
     return render(request, 'paginas/minha_colecao.html')
 
+
 @login_required(redirect_field_name='login')
 def buscar(request):
-
     search = request.GET.get('search')
     print(search)
 
-    livros = Livros.categoria(
-        nome = search,
-    )
+    if search:
+        pets = Pets.objects.filter(name=search)
+    else:
+        pets = Pets.objects.all()
 
-    livros = Livros.objects().all()
     return render(request, 'paginas/buscar.html', {
-        'livros': livros,
+        'livros': pets,
     })
-
