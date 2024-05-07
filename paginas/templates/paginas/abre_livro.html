@@ -14,24 +14,27 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <div class="card-body">
-                        <h2>{{ livro.nome }}</h2>
-                        <p style="font-size: 10px">Número de registro: {{ livro.id }}</p>
+                        <div style="display: flex; justify-content: space-between">
+                            <h2>{{ livro.nome }} - </h2>
+                            <p style="font-size: 15px">{{ livro.id }}</p>
+                        </div>
+
                         <h4 style="padding-top: 1%">Status: {{ livro.status }}</h4>
                         <h4 style="padding-top: 1%">Raça: {{ livro.raca }}</h4>
                         <h4 style="padding-top: 1%">Tutor: {{ livro.tutor }}</h4>
                         <h4 style="padding-top: 1%">E-mail: {{ livro.email }}</h4>
                         <h4 style="padding-top: 1%">Contato: {{ livro.telefone }}</h4>
-                        <h4 style="padding-top: 1%">CPF: {{ livro.cpf }} remover </h4>
-                        <h4 style="padding-top: 1%">Endereço: {{ livro.email }} remover</h4>
+                        <h4 style="padding-top: 1%; display: none">CPF: {{ livro.cpf }} remover </h4>
+                        <h4 style="padding-top: 1%; display: none">Endereço: {{ livro.email }} remover</h4>
                         <h4 style="padding-top: 1%">Data de acolhimento: {{ livro.data_acolhimento }}</h4>
                         <h4 style="padding-top: 1%">Histórico de cuidados: {{ livro.historico_medico }}</h4>
                         <h6>{{ livro.descricao }}</h6>
                         <a href="http://127.0.0.1:8000/admin/paginas/livros/{{ livro.id }}/change/">
                             <button type="button" class="btn btn-primary">Atualizar informações</button>
                         </a>
-<!--                        <a href="#">-->
-<!--                            <button type="button" class="btn btn-success">Favoritar</button>-->
-<!--                        </a>-->
+                        <!--                        <a href="#">-->
+                        <!--                            <button type="button" class="btn btn-success">Favoritar</button>-->
+                        <!--                        </a>-->
                     </div>
                 </div>
             </div>
