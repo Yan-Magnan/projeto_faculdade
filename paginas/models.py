@@ -10,28 +10,25 @@ class Categoria(models.Model):
 
 
 class Livros(models.Model):
-    nome = models.CharField(max_length=80)
-    editora = models.CharField(max_length=80)
-    descricao = models.TextField(blank=True)
-    ano_Lancamento = models.DateTimeField(default=timezone.now)
-    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
-    mostrar = models.BooleanField(default=True)
-    foto = models.ImageField(blank=True, upload_to='fotos/%y/%m/')
-    livro = models.FileField(blank=True, upload_to='pdfs/%y/%m/')
-    # arquivo = models.FilePathField(blank=False)
+    STATUS_CHOICES = [
+        ('Tutor não localizado', 'Tutor não localizado'),
+        ('Tutor localizado', 'Tutor localizado'),
+        ('Retirado pelo tutor', 'Retirado pelo tutor'),
+    ]
 
-    def __str__(self):
-        return self.nome
-
-class Livros2(models.Model):
-    nome = models.CharField(max_length=80)
-    editora = models.CharField(max_length=80)
-    descricao = models.TextField(blank=True)
-    ano_Lancamento = models.DateTimeField(default=timezone.now)
-    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
-    mostrar = models.BooleanField(default=True)
+    status = models.CharField(max_length=80, choices=STATUS_CHOICES, default='Status pendente')
+    nome = models.CharField(max_length=80, default='Sem nome')
+    raca = models.CharField(max_length=80, default='Raça pendente')
+    tutor = models.CharField(max_length=180, default='Tutor pendente')
+    email = models.CharField(max_length=260, default='Email pendente')
+    telefone = models.CharField(max_length=80, default='Telefone pendente')
+    cpf = models.CharField(max_length=260, default='xxx.xxx.xxx-xx')
+    endereco = models.CharField(max_length=150, default='Sem endereço')
+    data_acolhimento = models.DateTimeField(default=timezone.now)
+    historico_medico = models.CharField(max_length=500000, blank=True)
     foto = models.ImageField(blank=True, upload_to='fotos/%y/%m/')
-    livro = models.FileField(blank=True, upload_to='pdfs/%y/%m/')
+    # livro = models.FileField(blank=True, upload_to='pdfs/%y/%m/')
+    # historico_medico = models.CharField(max_length=500000, blank=True)
     # arquivo = models.FilePathField(blank=False)
 
     def __str__(self):
@@ -48,6 +45,26 @@ class pet(models.Model):
     endereco = models.CharField(max_length=150)
     data_acolhimento = models.DateTimeField(default=timezone.now)
     historico_medico = models.CharField(max_length=500000, blank=True)
+
+class Livros2(models.Model):
+
+    nome = models.CharField(max_length=80)
+    editora = models.CharField(max_length=80)
+    descricao = models.TextField(blank=True)
+    ano_Lancamento = models.DateTimeField(default=timezone.now)
+    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    mostrar = models.BooleanField(default=True)
+    foto = models.ImageField(blank=True, upload_to='fotos/%y/%m/')
+    livro = models.FileField(blank=True, upload_to='pdfs/%y/%m/')
+
+
+
+
+    # arquivo = models.FilePathField(blank=False)
+
+    def __str__(self):
+        return self.nome
+
 
 
     def __str__(self):
