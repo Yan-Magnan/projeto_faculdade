@@ -19,8 +19,10 @@ def index(request):
 def abre_livro(request, livros_id):
     # livro = Livros.objects.get(id=livros_id)
     pet = get_object_or_404(Pets, id=livros_id)
+    superuser = request.user.is_superuser
     return render(request, 'paginas/abre_livro.html', {
-        'livro': pet
+        'livro': pet,
+        'superuser': superuser,
     })
 
 
