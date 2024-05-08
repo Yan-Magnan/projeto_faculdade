@@ -56,13 +56,12 @@ def minha_colecao(request):
     return render(request, 'paginas/minha_colecao.html')
 
 
-@login_required(redirect_field_name='login')
 def buscar(request):
     search = request.GET.get('search')
     print(search)
 
     if search:
-        pets = Pets.objects.filter(name=search)
+        pets = Pets.objects.filter(nome=search)
     else:
         pets = Pets.objects.all()
 
