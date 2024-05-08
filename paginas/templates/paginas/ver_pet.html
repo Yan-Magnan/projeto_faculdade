@@ -1,17 +1,13 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
-{%block conteudo%}
 
-
+{% block conteudo %}
 <div class="container_pet">
     {% if livro.foto %}
     <div class="card_pet">
-
-        <!--        {% if livro.foto %}-->
         <div>
             <img style="height: 360px" src="{{ livro.foto.url }}" alt="Imagem"/>
         </div>
-
         <div class="card-text_pet">
             <div style="display: flex; justify-content: space-between">
                 <h2>{{ livro.nome }} - {{ livro.status }}</h2>
@@ -30,15 +26,12 @@
                 <h5>Histórico médico: </h5>
                 <p style="font-size: 17px"> {{ livro.historico_medico }}</p>
             </div>
-
-
             <hr>
             <div style="display: flex; justify-content: space-between">
-
                 <div class="accordion">
                     <button class="accordion-btn btn btn-primary" style="margin-bottom:15px ">Informações do tutor
                     </button>
-                    <div class="accordion-content">
+                    <div class="accordion-content" style="display: none;">
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>Nome do tutor: </h5>
                             <p style="font-size: 19px; padding-left: 15px"> {{ livro.tutor }}</p>
@@ -61,28 +54,17 @@
                         </div>
                     </div>
                 </div>
-
-                {% if superuser %}
-                <a href="http://127.0.0.1:8000/admin/paginas/pets/{{ livro.id }}/change/">
-                    <button type="button" class="btn btn-primary">Atualizar informações</button>
-                </a>
-                {% else %}
-                {% comment %} Substituir pela view do formulário {% endcomment %}
-                <a href="#">
+                {% if request.user.is_superuser %}
+                <a href="/admin/paginas/pets/{{ livro.id }}/change/">
                     <button type="button" class="btn btn-primary">Atualizar informações</button>
                 </a>
                 {% endif %}
-
-
             </div>
         </div>
     </div>
     {% endif %}
-
 </div>
-<!--{% endif %}-->
 </div>
-
 
 <script>
     var acc = document.getElementsByClassName("accordion-btn");
@@ -100,7 +82,7 @@
         });
     }
 </script>
-{%endblock%}
+{% endblock %}
 <style>
     /* Estilos para dispositivos móveis */
     @media only screen and (max-width: 600px) {
