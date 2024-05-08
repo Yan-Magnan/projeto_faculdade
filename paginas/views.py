@@ -46,17 +46,17 @@ def ver_livros(request):
     # })
 
 
-# @login_required(redirect_field_name='login')
+@login_required(redirect_field_name='login')
 def lista_desejo(request):
     return render(request, 'paginas/lista_desejo.html')
 
 
-#  login_required(redirect_field_name='login')
+@login_required(redirect_field_name='login')
 def minha_colecao(request):
     return render(request, 'paginas/minha_colecao.html')
 
 
-#  @login_required(redirect_field_name='login')
+@login_required(redirect_field_name='login')
 def buscar(request):
     search = request.GET.get('search')
     print(search)
