@@ -22,4 +22,4 @@ class PetsForm(ModelForm):
 
     class Meta:
         model = Pets
-        fields = [status, tutor, email, telefone, historico_medico]
+        fields = ['status', 'tutor', 'email', 'telefone', 'historico_medico']
