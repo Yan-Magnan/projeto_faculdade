@@ -2,44 +2,109 @@
 {% load static %}
 {%block conteudo%}
 
-<div style="position:absolute ;padding-top: 2%; left: 3%">
 
-    <div class="card mb-3">
-        <div class="row g-0">
-            {% if livro.foto %}
-            <div class="col-md-4">
-                <img style="width:190px" src="{{ livro.foto.url }}" class="img-fluid rounded-start" alt="...">
+<div class="container_pet">
+    {% if livro.foto %}
+    <div class="card_pet">
+
+        <!--        {% if livro.foto %}-->
+        <div>
+            <img style="height: 360px" src="{{ livro.foto.url }}" alt="Imagem"/>
+        </div>
+
+        <div class="card-text_pet">
+            <div style="display: flex; justify-content: space-between">
+                <h2>{{ livro.nome }} - {{ livro.status }}</h2>
+                <p style="font-size: 15px">{{ livro.id }}</p>
             </div>
-            {% endif %}
-            <div class="col-md-8">
-                <div class="card-body">
-                    <div class="card-body">
-                        <div style="display: flex; justify-content: space-between">
-                            <h2>{{ livro.nome }} - </h2>
-                            <p style="font-size: 15px">{{ livro.id }}</p>
-                        </div>
+            <hr>
+            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                <h5>Data de acolhimento: </h5>
+                <p style="font-size: 17px"> {{ livro.data_acolhimento }}</p>
+            </div>
+            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                <h5>Raça: </h5>
+                <p style="font-size: 17px"> {{ livro.raca }}</p>
+            </div>
+            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                <h5>Histórico médico: </h5>
+                <p style="font-size: 17px"> {{ livro.historico_medico }}</p>
+            </div>
 
-                        <h4 style="padding-top: 1%">Status: {{ livro.status }}</h4>
-                        <h4 style="padding-top: 1%">Raça: {{ livro.raca }}</h4>
-                        <h4 style="padding-top: 1%">Tutor: {{ livro.tutor }}</h4>
-                        <h4 style="padding-top: 1%">E-mail: {{ livro.email }}</h4>
-                        <h4 style="padding-top: 1%">Contato: {{ livro.telefone }}</h4>
-                        <h4 style="padding-top: 1%; display: none">CPF: {{ livro.cpf }} remover </h4>
-                        <h4 style="padding-top: 1%; display: none">Endereço: {{ livro.email }} remover</h4>
-                        <h4 style="padding-top: 1%">Data de acolhimento: {{ livro.data_acolhimento }}</h4>
-                        <h4 style="padding-top: 1%">Histórico de cuidados: {{ livro.historico_medico }}</h4>
-                        <h6>{{ livro.descricao }}</h6>
-                        <a href="http://127.0.0.1:8000/admin/paginas/livros/{{ livro.id }}/change/">
-                            <button type="button" class="btn btn-primary">Atualizar informações</button>
-                        </a>
-                        <!--                        <a href="#">-->
-                        <!--                            <button type="button" class="btn btn-success">Favoritar</button>-->
-                        <!--                        </a>-->
+
+            <hr>
+            <div style="display: flex; justify-content: space-between">
+
+                <div class="accordion">
+                    <button class="accordion-btn btn btn-primary" style="margin-bottom:15px ">Informações do tutor</button>
+                    <div class="accordion-content">
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>Nome do tutor: </h5>
+                            <p style="font-size: 17px"> {{ livro.tutor }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>E-mail: </h5>
+                            <p style="font-size: 17px"> {{ livro.email }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>Telefone: </h5>
+                            <p style="font-size: 17px"> {{ livro.telefone }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>CPF: </h5>
+                            <p style="font-size: 17px"> {{ livro.cpf }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>Endereço: </h5>
+                            <p style="font-size: 17px"> {{ livro.endereco }}</p>
+                        </div>
                     </div>
                 </div>
+
+                <a target="_blank" href="http://127.0.0.1:8000/admin/paginas/livros/{{ livro.id }}/change/">
+                    <button type="button" class="btn btn-primary">Atualizar informações</button>
+                </a>
             </div>
         </div>
     </div>
+    {% endif %}
+
+</div>
+<!--{% endif %}-->
 </div>
 
+
+<script>
+    var acc = document.getElementsByClassName("accordion-btn");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
 {%endblock%}
+<style>
+    /* Estilos para dispositivos móveis */
+    @media only screen and (max-width: 600px) {
+        .container_pet {
+            width: 100%;
+            padding: 0 10px; /* Adicione espaço nas laterais */
+        }
+        .card_pet {
+            width: 100%; /* Ocupa toda a largura do dispositivo */
+            border-radius: 0; /* Remove o raio da borda */
+            box-shadow: none; /* Remove a sombra */
+        }
+        .card-text_pet {
+            padding: 10px 0; /* Adicione espaço interno */
+        }
+    }
+</style>

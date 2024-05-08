@@ -3,11 +3,11 @@
 {%block conteudo%}
 
 <div class="cards-container">
-
     {% for livros in livros %}
     <div class="card">
         <img style="width: 200px" src="{{ livros.foto.url }}" alt="Imagem do Card">
-      <p>{{livros.nome}}</p>
+
+        <p>{{livros.nome}}</p>
         <p>{{livros.status}}</p>
         <a href="{% url 'abre_livro' livros.id %}" class="btn-ver-mais">Ver Mais</a>
     </div>
@@ -19,104 +19,12 @@
     {% for pets in pets %}
     <div class="card">
         <img style="width: 200px" src="{{ livros.foto.url }}" alt="Cachorro resgatado la salle">
-<!--      <p>{{livros.nome}}</p>-->
+        <!--      <p>{{livros.nome}}</p>-->
         <a href="{% url 'abre_livro' livros.id %}" class="btn-ver-mais">Ver Maiss</a>
     </div>
     {% endfor %}
 </div>
 
 
-<!--{% for livros in livros %}-->
-<!--<div class="carousel-item {% if forloop.first %} active{% endif %}"-->
-<!--     data-bs-interval="10000 {% if forloop.first %} active{% endif %}"-->
-<!--     style="position: relative; left: 15% ">-->
-
-<!--    <div class="col-md-10">-->
-<!--        <div class="card-body">-->
-
-<!--            <h5 class="card-title" style="font-size:1rem">{{livros.nome}} - <a-->
-<!--                    style="font-size:.6rem">id:-->
-<!--                {{livros.id}}</a></h5>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px;  width: 50%  "-->
-<!--                                                    src="{{ livros.foto.url }}"-->
-<!--                                                    class="d-block w-45"-->
-<!--                                                    alt="Livro Django"></a>-->
-<!--</div>-->
-<!--{% endfor %}-->
-
-<!--<div style="position:absolute ;padding-top: 2%; left: 10%">-->
-<!--    <div class="card mb-3" style="max-width: 540px">-->
-<!--        <div class="row g-0">-->
-<!--            <div class="col-md-4">-->
-<!--                <img src="{% static 'images/MinhaFoto.jpg' %}" class="img-fluid rounded-start" alt="...">-->
-<!--            </div>-->
-<!--            <div class="col-md-8">-->
-<!--                <div class="card-body">-->
-
-<!--                    <h5 class="card-title">Sobre mim</h5>-->
-<!--                    <p class="card-text">Me chamoasd Yan Magnan, estou cursando o segundo semestre de Ciência da-->
-<!--                        Computação-->
-<!--                        na universidade La-->
-<!--                        Salle.<br><br> Atualmente sou estagíario de <i>Qa Tester</i> da UFCSPA, porém, eu também ajudo-->
-<!--                        no front-end quando é preciso</p>-->
-<!--                    <a href="https://www.linkedin.com/in/yan-magnan-303586155" target="_blank" class="btn btn-primary">Linkedin</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div style="position: fixed ;left: 65%; top: 20%;">-->
-
-<!--    <div class="card" style="width: 20rem">-->
-<!--        <div class="card-header">-->
-<!--            Livros recomnedadso-->
-<!--        </div>-->
-<!--        <div class="card-body">-->
-
-<!--            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">-->
-<!--                {% for id in plots.imgPlots.files %}-->
-
-<!--                <li data-target="#carouselExampleIndicators" data-slide-to="{{id}}"></li>-->
-<!--                {% endfor %}-->
-<!--                <div class="carousel-inner">-->
-<!--                    {% for livros in livros %}-->
-<!--                    <div class="carousel-item {% if forloop.first %} active{% endif %}"-->
-<!--                         data-bs-interval="10000 {% if forloop.first %} active{% endif %}"-->
-<!--                         style="position: relative; left: 15% ">-->
-
-<!--                        <div class="col-md-10">-->
-<!--                            <div class="card-body">-->
-
-<!--                                <h5 class="card-title" style="font-size:1rem">{{livros.nome}} - <a-->
-<!--                                        style="font-size:.6rem">id:-->
-<!--                                    {{livros.id}}</a></h5>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <a href="{% url 'abre_livro' livros.id %}"><img style="max-width:190px;  width: 50%  "-->
-<!--                                                                        src="{{ livros.foto.url }}"-->
-<!--                                                                        class="d-block w-45"-->
-<!--                                                                        alt="Livro Django"></a>-->
-<!--                    </div>-->
-<!--                    {% endfor %}-->
-<!--                </div>-->
-
-<!--                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"-->
-<!--                        data-bs-slide="prev">-->
-<!--                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                    <span class="visually-hidden">Previous</span>-->
-<!--                </button>-->
-<!--                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"-->
-<!--                        data-bs-slide="next">-->
-<!--                    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                    <span class="visually-hidden">Next</span>-->
-<!--                </button>-->
-
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 {%endblock%}
+

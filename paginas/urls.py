@@ -5,9 +5,9 @@ urlpatterns = [
     # path('', views.index, name='index'),
     path('', views.index, name='index'),
     path('<int:livros_id>', views.abre_livro, name='abre_livro'),
-    path('buscar/', views.buscar, name='buscar'),
-    path('profile/', views.profile, name='profile'),
-    path('ver_livros/', views.ver_livros, name='ver_livros'),
+    path('buscar/', views.buscar, name='buscar'), # Remove
+    path('profile/', views.profile, name='profile'), # Remove
+    path('ver_livros/', views.ver_livros, name='ver_livros'), # Remove
     path('lista_desejo/', views.lista_desejo, name='lista_desejo'),
     path('minha_colecao/', views.minha_colecao, name='minha_colecao'),
 
