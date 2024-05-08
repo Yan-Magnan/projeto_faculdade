@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Pets
 
 
-@login_required(redirect_field_name='login')
 def index(request):
     pets = Pets.objects.all()
     return render(request, 'paginas/index.html', {
@@ -15,7 +14,6 @@ def index(request):
     })
 
 
-@login_required(redirect_field_name='login')
 def abre_livro(request, livros_id):
     # livro = Livros.objects.get(id=livros_id)
     pet = get_object_or_404(Pets, id=livros_id)
@@ -46,22 +44,12 @@ def ver_livros(request):
     # })
 
 
-@login_required(redirect_field_name='login')
-def lista_desejo(request):
-    return render(request, 'paginas/lista_desejo.html')
-
-
-@login_required(redirect_field_name='login')
-def minha_colecao(request):
-    return render(request, 'paginas/minha_colecao.html')
-
-
 def buscar(request):
     search = request.GET.get('search')
     print(search)
 
     if search:
-        pets = Pets.objects.filter(nome__contains=search)
+        pets = Pets.objects.filter(nome__icontains=search)
     else:
         pets = Pets.objects.all()
 
