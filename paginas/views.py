@@ -61,7 +61,7 @@ def buscar(request):
     print(search)
 
     if search:
-        pets = Pets.objects.filter(nome=search)
+        pets = Pets.objects.filter(nome__contains=search)
     else:
         pets = Pets.objects.all()
 
