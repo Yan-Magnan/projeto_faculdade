@@ -36,34 +36,44 @@
             <div style="display: flex; justify-content: space-between">
 
                 <div class="accordion">
-                    <button class="accordion-btn btn btn-primary" style="margin-bottom:15px ">Informações do tutor</button>
+                    <button class="accordion-btn btn btn-primary" style="margin-bottom:15px ">Informações do tutor
+                    </button>
                     <div class="accordion-content">
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>Nome do tutor: </h5>
-                            <p style="font-size: 17px"> {{ livro.tutor }}</p>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ livro.tutor }}</p>
                         </div>
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>E-mail: </h5>
-                            <p style="font-size: 17px"> {{ livro.email }}</p>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ livro.email }}</p>
                         </div>
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>Telefone: </h5>
-                            <p style="font-size: 17px"> {{ livro.telefone }}</p>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ livro.telefone }}</p>
                         </div>
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>CPF: </h5>
-                            <p style="font-size: 17px"> {{ livro.cpf }}</p>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ livro.cpf }}</p>
                         </div>
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>Endereço: </h5>
-                            <p style="font-size: 17px"> {{ livro.endereco }}</p>
+                            <p style="font-size: 19px;padding-left: 15px"> {{ livro.endereco }}</p>
                         </div>
                     </div>
                 </div>
 
-                <a target="_blank" href="http://127.0.0.1:8000/admin/paginas/livros/{{ livro.id }}/change/">
+                {% if superuser %}
+                <a href="http://127.0.0.1:8000/admin/paginas/pets/{{ livro.id }}/change/">
                     <button type="button" class="btn btn-primary">Atualizar informações</button>
                 </a>
+                {% else %}
+                {% comment %} Substituir pela view do formulário {% endcomment %}
+                <a href="#">
+                    <button type="button" class="btn btn-primary">Atualizar informações</button>
+                </a>
+                {% endif %}
+
+
             </div>
         </div>
     </div>
@@ -98,11 +108,13 @@
             width: 100%;
             padding: 0 10px; /* Adicione espaço nas laterais */
         }
+
         .card_pet {
             width: 100%; /* Ocupa toda a largura do dispositivo */
             border-radius: 0; /* Remove o raio da borda */
             box-shadow: none; /* Remove a sombra */
         }
+
         .card-text_pet {
             padding: 10px 0; /* Adicione espaço interno */
         }
