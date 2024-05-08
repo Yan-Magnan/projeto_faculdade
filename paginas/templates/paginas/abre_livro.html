@@ -26,9 +26,17 @@
                         <h4 style="padding-top: 1%">Data de acolhimento: {{ livro.data_acolhimento }}</h4>
                         <h4 style="padding-top: 1%">Histórico de cuidados: {{ livro.historico_medico }}</h4>
                         <h6>{{ livro.descricao }}</h6>
-                        <a href="http://127.0.0.1:8000/admin/paginas/livros/{{ livro.id }}/change/">
-                            <button type="button" class="btn btn-primary">Atualizar informações</button>
-                        </a>
+                        {% comment %}<a href="http://127.0.0.1:8000/admin/paginas/livros/{{ livro.id }}/change/">{% endcomment %}
+                        {% if superuser %}
+                            <a href="http://127.0.0.1:8000/admin/paginas/pets/{{ livro.id }}/change/">
+                                <button type="button" class="btn btn-primary">Atualizar informações</button>
+                            </a>
+                        {% else %}
+                            {% comment %} Substituir pela view do formulário {% endcomment %}
+                            <a href="{% url 'profile' %}">
+                                <button type="button" class="btn btn-primary">Atualizar informações</button>
+                            </a>
+                        {% endif %}
 <!--                        <a href="#">-->
 <!--                            <button type="button" class="btn btn-success">Favoritar</button>-->
 <!--                        </a>-->
