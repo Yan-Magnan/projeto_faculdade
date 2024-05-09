@@ -65,6 +65,13 @@
 <div class="d-flex justify-content-center fw-bolder">
     <h1>Resgate PET - Universidade La Salle</h1>
 </div>
+{% block search %}
+<div>
+    <form action="{% url 'buscar' %}" method="get">
+        <input type="text" name="search" />
+    </form>
+</div>
+{% endblock %}
 <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
 <!--    <div class="container-fluid">-->
 
