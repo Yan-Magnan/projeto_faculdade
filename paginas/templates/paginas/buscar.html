@@ -1,14 +1,15 @@
 {%extends 'base.html'%}
 {% load static %}
 
-{% block search %}{% endblock %}
+{% block search %}
+    <form style="max-width: 70%; padding-top:1%; position:relative; left:15%" class="d-flex" method="get" action="{% url 'buscar' %}">
+        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="{{ request.GET.search }}">
+        <button class="btn btn-outline-success" onclick="funcao1()" type="submit">Pesquisar</button>
+    </form>
+{% endblock %}
 
 {%block conteudo%}
 
-<form style="max-width: 70%; padding-top:1%; position:relative; left:15%" class="d-flex" method="get" action="{% url 'buscar' %}">
-    <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="{{ request.GET.search }}">
-    <button class="btn btn-outline-success" onclick="funcao1()" type="submit">Pesquisar</button>
-</form>
 <div style="position: absolute ;left: 15%; top: 25%;">
 
     <div class="card" style="width: 60rem">
