@@ -18,6 +18,7 @@ class Pets(models.Model):
     status = models.CharField(max_length=80, choices=STATUS_CHOICES, default='Status pendente')
     nome = models.CharField(max_length=80, default='Sem nome')
     raca = models.CharField(max_length=80, default='Raça pendente')
+    local_resgate = models.CharField(max_length=500, default='Local não informado')
     tutor = models.CharField(max_length=180, default='Tutor pendente')
     email = models.CharField(max_length=260, default='Email pendente')
     telefone = models.CharField(max_length=80, default='Telefone pendente')

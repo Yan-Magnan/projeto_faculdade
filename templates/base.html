@@ -10,107 +10,152 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <style>
-        body {
-            background-color: #a2d8ec;
+     body {
+        background-color: #a2d8ec;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Estilos para os cards container */
+    .cards-container {
+        display: flex; /* Alinha os cards horizontalmente */
+        justify-content: center; /* Centraliza os cards horizontalmente */
+        flex-wrap: wrap; /* Permite a quebra de linha */
+        margin-left: 5%; /* Compensar margens negativas */
+        margin-right: 5%;
+    }
+
+    /* Estilos para os cards */
+    .card {
+        margin: 10px; /* Espaçamento entre os cards */
+        border: 1px solid #ddd; /* Borda */
+        border-radius: 5px; /* Borda arredondada */
+        overflow: hidden;
+        width: 100%; /* Define a largura do card */
+        height: 400px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra */
+    }
+
+    /* Estilos para a imagem dentro do card */
+    .card img {
+        display: block; /* Remove espaços em branco ao redor da imagem */
+        margin: auto; /* Centraliza a imagem */
+        width: 90%; /* Largura máxima da imagem */
+        height: 60%; /* Altura máxima da imagem */
+        object-fit: cover; /* Redimensiona a imagem enquanto mantém a proporção */
+        border-radius: 5px; /* Borda arredondada para a imagem */
+    }
+
+    /* Estilos para o texto do status */
+    .status {
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    /* Estilos para o botão "Ver Mais" */
+    .btn-ver-mais {
+        background-color: #007bff; /* Cor de fundo do botão */
+        color: white; /* Cor do texto */
+        padding: 10px 10%; /* Espaçamento interno */
+        border: none; /* Sem borda */
+        border-radius: 5px; /* Borda arredondada */
+        cursor: pointer;
+        display: block; /* Transforma em bloco para centralizar */
+        margin: 10px auto; /* Margem para centralizar */
+        text-decoration: none;
+    }
+
+    .btn-ver-mais:hover {
+        background-color: #0063ce;
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Estilos para o formulário de filtro */
+    .filter-form {
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .filter-form select {
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 16px;
+    }
+
+    .filter-form button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .filter-form button:hover {
+        background-color: #0063ce;
+    }
+
+    .container_pet {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Estilos para os cards container */
-        .cards-container {
-            display: flex; /* Alinha os cards horizontalmente */
-            justify-content: center; /* Centraliza os cards horizontalmente */
-            flex-wrap: wrap; /* Permite a quebra de linha */
-            height: 150px;
+        .card_pet {
+            width: 75%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex; /* adicionado */
         }
 
-        /* Estilos para os cards */
+        .img-container {
+            margin-right: 20px; /* espaço entre a imagem e o texto */
+        }
+
+        .card-text_pet {
+            flex: 1; /* para ocupar o restante do espaço disponível */
+            margin-left: 20px;
+        }
+
+
+    @media (min-width: 150px) and (max-width: 640px){
         .card {
-            margin: 20px; /* Espaçamento entre os cards */
-            border: 1px solid #ddd; /* Borda */
-            border-radius: 5px; /* Borda arredondada */
-            overflow: hidden;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra */
+            width: calc(50% - 50px); /* Define a largura do card */
         }
 
-        /* Estilos para a imagem dentro do card */
-        .card img {
-            display: block; /* Remove espaços em branco ao redor da imagem */
-            margin: auto; /* Centraliza a imagem */
-            max-width: 100%; /* A imagem não deve ultrapassar o tamanho do card */
-            height: auto; /* Altura automática para manter a proporção */
+
+    }
+    @media (min-width: 641px) and (max-width: 919px){
+        .card {
+            width: calc(30% - 20px); /* Define a largura do card */
         }
 
-        /* Estilos para o botão "Ver Mais" */
-        .btn-ver-mais {
-            background-color: #007bff; /* Cor de fundo do botão */
-            color: white; /* Cor do texto */
-            padding: 10px 20px; /* Espaçamento interno */
-            border: none; /* Sem borda */
-            border-radius: 5px; /* Borda arredondada */
-            cursor: pointer;
-            display: block; /* Transforma em bloco para centralizar */
-            margin: 10px auto; /* Margem para centralizar */
-            text-decoration: none;
-        }
-        .btn-ver-mais:hover{
-            background-color: #0063ce;
-            color: white;
-           font-weight: bold;
-        }
 
-    </style>
+    }
+
+    /* Media query para desktop */
+    @media (min-width: 920px) and (max-width: 1919px){
+        .card {
+            width: calc(20% - 20px); /* Define a largura do card */
+        }
+    }
+</style>
 </head>
 
 <body>
 
 <div class="d-flex justify-content-center fw-bolder">
-    <h1>Resgate PET - Universidade La Salle</h1>
+    <h1>SOS PET Canoas</h1>
 </div>
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--    <div class="container-fluid">-->
-
-<!--        <a class="navbar-brand"  href="{% url 'index' %}"><img style="height: 70px" src="{% static 'images/logo.png' %}" alt="Logo"></a>-->
-
-<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-
-<!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
-
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link " aria-current="page" href="{% url 'profile' %}">Seja bem vindo, {{user}}</a>-->
-<!--                </li>-->
-
-<!--                <a style="padding-right: 200px"></a>-->
-
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link " aria-current="page" href="{% url 'ver_livros' %}">Ver livros</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="{% url 'minha_colecao' %}">Minha coleção</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="{% url 'lista_desejo' %}">Lista de desejo</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item dropdown">-->
-<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                        Ajuda-->
-<!--                    </a>-->
-<!--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--                        <li><a class="dropdown-item" href="#11">Devolver livro</a></li>-->
-<!--                        <li><a class="dropdown-item" href="#12">Salvar livro</a></li>-->
-<!--                        <li><hr class="dropdown-divider"></li>-->
-<!--                        <li><a class="dropdown-item" href="#13">Cadastro</a></li>-->
-<!--                        <li><a class="dropdown-item" href="#13">Login</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <form class="d-flex" action="{% url 'logout'%}">-->
-<!--                <button class="btn btn-outline-success" type="submit">Sair</button>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
 
 
 {%block conteudo%}{%endblock%}

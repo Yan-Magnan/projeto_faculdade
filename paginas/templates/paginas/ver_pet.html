@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block conteudo %}
+<div class="container_pet">
+    <div class="card_pet">
+        {% if pet.foto %}
+        <div>
+            <img style="height: 360px" src="{{ pet.foto.url }}" alt="Imagem"/>
+        </div>
+        {% endif %}
+        <div class="card-text_pet">
+            <div style="display: flex; justify-content: space-between">
+                <h2>{{ pet.nome }} - {{ pet.status }}</h2>
+                <p style="font-size: 15px">{{ pet.id }}</p>
+            </div>
+            <hr>
+            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                <h5>Data de acolhimento: </h5>
+                <p style="font-size: 17px"> {{ pet.data_acolhimento }}</p>
+            </div>
+            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                <h5>Raça: </h5>
+                <p style="font-size: 17px"> {{ pet.local_resgate }}</p>
+            </div>
+            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                <h5>Raça: </h5>
+                <p style="font-size: 17px"> {{ pet.raca }}</p>
+            </div>
+            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                <h5>Histórico médico: </h5>
+                <p style="font-size: 17px"> {{ pet.historico_medico }}</p>
+            </div>
+            <hr>
+            <div style="display: flex; justify-content: space-between">
+                <div class="accordion">
+                    <button class="accordion-btn btn btn-primary" style="margin-bottom:15px ">Informações do tutor
+                    </button>
+                    <div class="accordion-content" style="display: none;">
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>Nome do tutor: </h5>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ pet.tutor }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>E-mail: </h5>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ pet.email }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>Telefone: </h5>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ pet.telefone }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>CPF: </h5>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ pet.cpf }}</p>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>Endereço: </h5>
+                            <p style="font-size: 19px;padding-left: 15px"> {{ pet.endereco }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if request.user.is_superuser %}
+                <a href="/admin/paginas/pets/{{ pet.id }}/change/">
+                    <button type="button" class="btn btn-primary">Atualizar informações</button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion-btn");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+{% endblock %}
