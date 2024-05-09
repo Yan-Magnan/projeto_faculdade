@@ -1,5 +1,8 @@
 {%extends 'base.html'%}
 {% load static %}
+
+{% block search %}{% endblock %}
+
 {%block conteudo%}
 
 <form style="max-width: 70%; padding-top:1%; position:relative; left:15%" class="d-flex" method="get" action="{% url 'buscar' %}">
