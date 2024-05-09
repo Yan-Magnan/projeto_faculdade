@@ -135,3 +135,5 @@ MESAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info',
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
