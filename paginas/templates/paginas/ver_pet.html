@@ -5,8 +5,8 @@
 <div class="container_pet">
     <div class="card_pet">
         {% if pet.foto %}
-        <div>
-            <img style="height: 360px" src="{{ pet.foto.url }}" alt="Imagem"/>
+        <div class="img-container">
+            <img src="{{ pet.foto.url }}" alt="Imagem" style="height: 360px; border-radius: 5px"/>
         </div>
         {% endif %}
         <div class="card-text_pet">
@@ -15,22 +15,25 @@
                 <p style="font-size: 15px">{{ pet.id }}</p>
             </div>
             <hr>
-            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
-                <h5>Data de acolhimento: </h5>
-                <p style="font-size: 17px"> {{ pet.data_acolhimento }}</p>
+            <div>
+                <div style="display: flex; justify-content: flex-start; align-items: baseline;justify-content: space-between; ">
+                    <h5>Data de acolhimento: </h5>
+                    <p style="font-size: 17px"> {{ pet.data_acolhimento }}</p>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: baseline; justify-content: space-between;">
+                    <h5>Local de abrigo: </h5>
+                    <p style="font-size: 17px;"> {{ pet.local_resgate }}</p>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: baseline;justify-content: space-between;">
+                    <h5>Raça: </h5>
+                    <p style="font-size: 17px"> {{ pet.raca }}</p>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: baseline;justify-content: space-between; ">
+                    <h5>Histórico médico: </h5><br>
+                    <p style="font-size: 17px"> {{ pet.historico_medico }}</p>
+                </div>
             </div>
-            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
-                <h5>Raça: </h5>
-                <p style="font-size: 17px"> {{ pet.local_resgate }}</p>
-            </div>
-            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
-                <h5>Raça: </h5>
-                <p style="font-size: 17px"> {{ pet.raca }}</p>
-            </div>
-            <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
-                <h5>Histórico médico: </h5>
-                <p style="font-size: 17px"> {{ pet.historico_medico }}</p>
-            </div>
+
             <hr>
             <div style="display: flex; justify-content: space-between">
                 <div class="accordion">
@@ -42,13 +45,15 @@
                             <p style="font-size: 19px; padding-left: 15px"> {{ pet.tutor }}</p>
                         </div>
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
-                            <h5>E-mail: </h5>
-                            <p style="font-size: 19px; padding-left: 15px"> {{ pet.email }}</p>
-                        </div>
-                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>Telefone: </h5>
                             <p style="font-size: 19px; padding-left: 15px"> {{ pet.telefone }}</p>
                         </div>
+                        {% if request.user.is_superuser %}
+                        <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
+                            <h5>E-mail: </h5>
+                            <p style="font-size: 19px; padding-left: 15px"> {{ pet.email }}</p>
+                        </div>
+
                         <div style="display: flex; justify-content: flex-start; align-items: baseline; ">
                             <h5>CPF: </h5>
                             <p style="font-size: 19px; padding-left: 15px"> {{ pet.cpf }}</p>
@@ -57,6 +62,7 @@
                             <h5>Endereço: </h5>
                             <p style="font-size: 19px;padding-left: 15px"> {{ pet.endereco }}</p>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 {% if request.user.is_superuser %}
@@ -67,7 +73,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <script>
@@ -85,5 +90,30 @@
             }
         });
     }
+</script>
+
+<script>
+    // Função para mover o texto para baixo da imagem em dispositivos móveis e aplicar estilo à imagem
+    function moveTextBelowImage() {
+        var imgContainer = document.querySelector('.img-container');
+        var cardTextPet = document.querySelector('.card-text_pet');
+        var cardPet = document.querySelector('.card_pet');
+        var img = imgContainer.querySelector('img');
+
+        if (window.innerWidth <= 640) {
+            // Se for um dispositivo móvel
+            cardPet.style.flexDirection = "column";
+            img.style.height = "360px";
+            img.style.borderRadius = "5px";
+            imgContainer.style.marginBottom = "20px";
+            imgContainer.style.display = "flex";
+            imgContainer.style.justifyContent = "center";
+            cardTextPet.style.textAlign = "center";
+        }
+    }
+
+    // Chama a função ao carregar a página e redimensionar a janela
+    window.onload = moveTextBelowImage;
+    window.onresize = moveTextBelowImage;
 </script>
 {% endblock %}

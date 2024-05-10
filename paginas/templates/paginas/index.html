@@ -4,19 +4,48 @@
 
 <div class="filter-form">
     <form action="#" method="GET">
-        <select name="breed" id="breed">
-            <option value="">Selecione a raça</option>
-            <!-- Adicione opções de raça aqui -->
+        <select class="select-search" name="especie" id="animal">
+            <option value="">Selecione a espécie</option>
+            <option value="Cachorro">Cachorro</option>
+            <option value="Gato">Gato</option>
+            <option value="Outra">Outra</option>
+
         </select>
-        <select name="size" id="size">
+
+        <select name="raca" id="breed">
+            <option value="">Selecione a espécie</option>
+            <option value="Labrador Retriever">Labrador Retriever</option>
+            <option value="Golden Retriever">Golden Retriever</option>
+            <option value="Pastor Alemão">Pastor Alemão</option>
+            <option value="Bulldog Francês">Bulldog Francês</option>
+            <option value="Beagle">Beagle</option>
+            <option value="Poodle">Poodle</option>
+            <option value="Boxer">Boxer</option>
+            <option value="Yorkshire Terrier">Yorkshire Terrier</option>
+            <option value="Dachshund (Salsicha)">Dachshund (Salsicha)</option>
+            <option value="Bulldog Inglês">Bulldog Inglês</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="Shih Tzu">Shih Tzu</option>
+            <option value="Pug">Pug</option>
+            <option value="Border Collie">Border Collie</option>
+            <option value="Rottweiler">Rottweiler</option>
+            <option value="Caramelo">Caramelo</option>
+            <option value="Outra">Outra</option>
+        </select>
+
+
+        <select name="porte" id="size">
             <option value="">Selecione o porte</option>
-            <!-- Adicione opções de porte aqui -->
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
         </select>
         <select name="sex" id="sex">
             <option value="">Selecione o sexo</option>
             <option value="Macho">Macho</option>
             <option value="Fêmea">Fêmea</option>
         </select>
+        <br>
         <button type="submit">Filtrar</button>
     </form>
 </div>
@@ -27,13 +56,13 @@
     <div class="card">
         <img src="{{ pets.foto.url }}" alt="Imagem do Card">
         {% if pets.status == 'Tutor localizado' %}
-            <p class="status" style="color: yellow; font-weight: bold;">{{ pets.status }}</p>
+        <p class="status" style="color: orange; font-weight: bold;">{{ pets.status }}</p>
         {% elif pets.status == 'Tutor não localizado' %}
-            <p class="status" style="color: red; font-weight: bold;">{{ pets.status }}</p>
+        <p class="status" style="color: red; font-weight: bold;">{{ pets.status }}</p>
         {% elif pets.status == 'Retirado pelo tutor' %}
-            <p class="status" style="color: green; font-weight: bold;">{{ pets.status }}</p>
+        <p class="status" style="color: green; font-weight: bold;">{{ pets.status }}</p>
         {% else %}
-            <p class="status">{{ pets.status }}</p>
+        <p class="status">{{ pets.status }}</p>
         {% endif %}
         <a href="{% url 'ver_pet' pets.id %}" class="btn-ver-mais">Ver Mais</a>
     </div>

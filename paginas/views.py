@@ -45,3 +45,5 @@ def buscar(request):
     return render(request, 'paginas/buscar.html', {
         'pets': pets,
     })
+
+
