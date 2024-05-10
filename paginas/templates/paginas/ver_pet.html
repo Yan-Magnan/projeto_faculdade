@@ -3,7 +3,11 @@
 
 {% block conteudo %}
 <div class="container_pet">
+
     <div class="card_pet">
+        <a href="javascript:history.back()" style="padding-right: 15px">
+            <button type="button" class="btn btn-primary">Voltar</button>
+        </a>
         {% if pet.foto %}
         <div class="img-container">
             <img src="{{ pet.foto.url }}" alt="Imagem" style="height: 360px; border-radius: 5px"/>
@@ -29,8 +33,10 @@
                     <p style="font-size: 17px"> {{ pet.raca }}</p>
                 </div>
                 <div style="display: flex; justify-content: flex-start; align-items: baseline;justify-content: space-between; ">
-                    <h5>Histórico médico: </h5><br>
-                    <p style="font-size: 17px"> {{ pet.historico_medico }}</p>
+                    <h5>Histórico médico: </h5>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#historicoModal">Ver
+                        detalhes
+                    </button>
                 </div>
             </div>
 
@@ -70,6 +76,27 @@
                     <button type="button" class="btn btn-primary">Atualizar informações</button>
                 </a>
                 {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="historicoModal" tabindex="-1" role="dialog" aria-labelledby="historicoModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="historicoModalLabel">Histórico Médico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ pet.historico_medico }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
@@ -116,4 +143,8 @@
     window.onload = moveTextBelowImage;
     window.onresize = moveTextBelowImage;
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock %}
