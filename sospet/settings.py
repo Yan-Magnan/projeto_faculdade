@@ -25,7 +25,7 @@ SECRET_KEY = '!b95-s48wh98fd5)wnu*e01+h_ic6v+*d9p6&l-2t+w^o$k3p0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -75,10 +75,22 @@ WSGI_APPLICATION = 'sospet.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'pRwyCEsYUqEnsZfQxzpmwjKsRlpzKxZG',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '47985',
     }
 }
 

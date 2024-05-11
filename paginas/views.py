@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Pets, Categoria
 from django.contrib.auth.decorators import login_required
-
+from datetime import datetime
+from django.http import HttpResponse
 
 def index(request):
     pets = Pets.objects.all()
@@ -32,8 +33,11 @@ def index(request):
 
     print("Número de resultados após aplicação dos filtros:", filtered_pets.count())
 
-    # Retorna a página renderizada com os animais filtrados
-    return render(request, 'paginas/index.html', {'pets': filtered_pets})
+    # Obtém a hora atual
+    now = datetime.now()
+
+    # Retorna a página renderizada com os animais filtrados e a hora atual
+    return render(request, 'paginas/index.html', {'pets': filtered_pets, 'now': now})
 
 
 def ver_pet(request, pets_id):
